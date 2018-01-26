@@ -38,7 +38,7 @@ public class PlayState extends GameState {
         
         for(int i = 0; i < chessBoard.length; ++i) {
             for(int j = 0; j < chessBoard[i].length; ++j) {
-                if((chessBoard[i].length % 2 == 0 && j % 2 == 0) || !(chessBoard[i].length % 2 == 0 && j % 2 == 0)) {
+                if((i % 2 == 0 && j % 2 == 0) || (i % 2 == 1 && j % 2 == 1)) {
                     Board.getTerminal().setCursorPosition(i, j);
                     Board.getTerminal().setBackgroundColor(TextColor.ANSI.WHITE);
                     Board.getTerminal().putCharacter(' ');
