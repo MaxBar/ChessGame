@@ -32,10 +32,11 @@ public class InitState extends GameState {
     
     @Override
     public void update(GameEngine game) throws IOException {
-    
+        changeState(game, MenuState.getInstance());
     }
     
     @Override
     public void draw(GameEngine game) throws IOException {
+        Board.getTerminal().flush();
     }
 }
