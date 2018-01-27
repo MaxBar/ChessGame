@@ -1,4 +1,13 @@
 package com.company.Entities;
 
-public class Pawn {
+
+public class Pawn implements Entity {
+
+    public void move() {
+
+
+    }
+
+
 }
+

@@ -4,10 +4,13 @@ import com.company.Board;
 import com.company.Engine.GameEngine;
 import com.company.Engine.GameState;
 import com.company.Entities.AI;
+import com.company.Entities.Piece;
+import com.company.Entities.Rook;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class PlayState extends GameState {
     private static PlayState playState = null;
@@ -33,6 +36,8 @@ public class PlayState extends GameState {
         chessBoard = new int[8][8];
         Board.getTerminal().setBackgroundColor(TextColor.ANSI.BLUE);
         Board.getTerminal().setForegroundColor(TextColor.ANSI.BLACK);
+
+        Rook r = new Rook(0,5,true);
     
         textGraphics = Board.getTerminal().newTextGraphics();
         
