@@ -1,6 +1,6 @@
 package com.company.Entities;
 
-public interface Entity {
+public interface IEntity {
 
 
     public void move();

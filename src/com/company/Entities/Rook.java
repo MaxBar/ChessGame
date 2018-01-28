@@ -1,6 +1,6 @@
 package com.company.Entities;
 
-public class Rook extends Piece implements Entity {
+public class Rook extends Piece implements IEntity {
 
 
     public Rook(int x, int y, boolean is_white) {

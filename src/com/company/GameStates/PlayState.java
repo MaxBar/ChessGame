@@ -8,6 +8,7 @@ import com.company.Entities.Piece;
 import com.company.Entities.Rook;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
+import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class PlayState extends GameState {
     private AI[] ai;
     private int[][] chessBoard;
     private TextGraphics textGraphics;
+    private KeyStroke key;
     
     private PlayState() throws IOException {
     
@@ -43,10 +45,12 @@ public class PlayState extends GameState {
         
         for(int i = 0; i < chessBoard.length; ++i) {
             for(int j = 0; j < chessBoard[i].length; ++j) {
-                if((i % 2 == 0 && j % 2 == 0) || (i % 2 == 1 && j % 2 == 1)) {
+                if((i % 2 == 0 && j % 2 == 0) ||
+                   (i % 2 == 1 && j % 2 == 1)) {
                     Board.getTerminal().setCursorPosition(i, j);
                     Board.getTerminal().setBackgroundColor(TextColor.ANSI.WHITE);
                     Board.getTerminal().putCharacter(' ');
+                    
                 } else {
                     Board.getTerminal().setCursorPosition(i, j);
                     Board.getTerminal().setBackgroundColor(TextColor.ANSI.BLACK);
@@ -55,19 +59,36 @@ public class PlayState extends GameState {
                 //Board.getTerminal().newTextGraphics().putString(i, j, Board.getTerminal().);
             }
         }
-        System.out.println("hej");
     }
     
     @Override
     public void handleEvents(GameEngine game) throws IOException {
+        key = Board.getTerminal().readInput();
     
+        switch(key.getKeyType()) {
+            case EOF:
+                game.quit();
+                break;
+            case Escape:
+                game.quit();
+                break;
+            case Character:
+                switch (key.getCharacter()) {
+                    case ' ':
+                        for(int i = 0; i < ai.length; ++i) {
+                            ai[i].handleEvents();
+                        }
+                        break;
+                }
+                break;
+        }
     }
     
     @Override
     public void update(GameEngine game) throws IOException {
-        /*for(int i = 0; i < ai.length; ++i) {
+        for(int i = 0; i < ai.length; ++i) {
             ai[i].update();
-        }*/
+        }
     }
     
     @Override
