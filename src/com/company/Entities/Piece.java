@@ -32,7 +32,7 @@ public class Piece {
 
     }
 
-    public Piece(int x, int y, boolean is_white) {
+    public Piece(int x, int y, boolean isWhite) {
 
         this.isWhite = isWhite;
         this.x = x;
