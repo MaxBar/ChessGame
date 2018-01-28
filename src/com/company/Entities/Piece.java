@@ -6,20 +6,20 @@ public class Piece {
 
     public int x;
     public int y;
-    public boolean is_white;
+    public boolean isWhite;
 
 
-    public ArrayList<Piece> White_Pieces; // List for white pieces
-    public ArrayList<Piece> Black_Pieces; // List for black pieces
+    public ArrayList<Piece> whitePieces; // List for white pieces
+    public ArrayList<Piece> blackPieces; // List for black pieces
 
     public Piece getPiece(int x, int y) {
 
-        for (Piece p : White_Pieces) {
+        for (Piece p : whitePieces) {
             if (p.getX() == x && p.getY() == y) {
                 return p;
             }
         }
-        for (Piece p : Black_Pieces) {
+        for (Piece p : blackPieces) {
             if (p.getX() == x && p.getY() == y) {
                 return p;
             }
@@ -34,18 +34,18 @@ public class Piece {
 
     public Piece(int x, int y, boolean is_white) {
 
-        this.is_white = is_white;
+        this.isWhite = isWhite;
         this.x = x;
         this.y = y;
 
     }
 
     public boolean isWhite() {
-        return is_white;
+        return isWhite;
     }
 
     public boolean isBlack() {
-        return !is_white;
+        return !isWhite;
     }
 
     public void setX(int x) {
