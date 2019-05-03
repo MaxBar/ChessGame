@@ -1,3 +1,3 @@
 # ChessGame
 
-Abandoned
+Abandoned, see SFMLChessGame instead
